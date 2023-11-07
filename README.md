@@ -9,3 +9,7 @@ Text Generation Inference Server with DevSpaces Code-Llama assistant
 - [Openshift with a worker node that has (4) NVIDIA T4 GPUs](https://github.com/redhat-na-ssa/demo-ai-gitops-catalog)
 
 
+```
+oc new-project tgi
+oc apply -k resources/base
+```

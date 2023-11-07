@@ -1,0 +1,4 @@
+resources:
+- pvc-data.yaml
+- pvc-cache.yaml
+- deployment.yaml
