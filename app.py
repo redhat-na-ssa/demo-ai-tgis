@@ -1,7 +1,10 @@
+import os
 import gradio as gr
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(model="https://tgis-tgi.apps.ocp.sandbox2000.opentlc.com")
+url = os.getenv('INFERENCE_URL')
+print(f'INFERENCE_URL = {url}')
+client = InferenceClient(model=url)
 
 def inference(message, history):
     partial_message = ""
@@ -15,8 +18,8 @@ gr.ChatInterface(
     textbox=gr.Textbox(placeholder="Chat with me!", container=False, scale=7),
     description="This is the demo for Gradio UI consuming TGI endpoint with a LLama-2 model.",
     title="Gradio 🤝 TGI",
-    examples=["What is a fibonacci sequence?", "def fibonacci(n: int) -> int:", "class Circle():"],
+    examples=["What is a fibonacci sequence?", "def fibonacci(n: int) -> int:\n", "class Circle():\n"],
     retry_btn="Retry",
     undo_btn="Undo",
     clear_btn="Clear",
-).queue().launch()
+).queue().launch(server_name='0.0.0.0', server_port=8080)

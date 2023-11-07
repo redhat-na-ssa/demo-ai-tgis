@@ -1,11 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"tgis"},"name":"tgis-deployment","namespace":"tgi"},"spec":{"progressDeadlineSeconds":600,"replicas":0,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"tgis"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"tgis"}},"spec":{"containers":[{"args":["--model-id","mosaicml/mpt-7b-instruct","--num-shard","1","--max-total-tokens","2048","--max-input-length","1600","--trust-remote-code","--port","8048"],"env":[{"name":"LOG_LEVEL","value":"debug"}],"image":"ghcr.io/huggingface/text-generation-inference:latest","imagePullPolicy":"Always","name":"tgis","ports":[{"containerPort":8048,"name":"runtime-rest","protocol":"TCP"}],"resources":{"limits":{"nvidia.com/gpu":"1"},"requests":{"cpu":"2","memory":"8Gi","nvidia.com/gpu":"1"}},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/data","name":"data"},{"mountPath":"/.cache","name":"cache"}]}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30,"tolerations":[{"effect":"NoSchedule","key":"nvidia.com/gpu","operator":"Exists"}],"volumes":[{"emptyDir":{"sizeLimit":"40Gi"},"name":"data"},{"emptyDir":{"sizeLimit":"40Gi"},"name":"cache"}]}}}}
-  resourceVersion: '15902741'
-  name: tgis-deployment
+  name: tgis
   labels:
     app: tgis
 spec:
@@ -15,7 +11,6 @@ spec:
       app: tgis
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: tgis
     spec:
