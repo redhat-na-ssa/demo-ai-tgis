@@ -33,3 +33,6 @@ oc create route edge --service=chat --insecure-policy='Redirect'
 3. Fire up DevSpaces and let the Llama help you code!
 
 Need to add the correct `devfile.yaml` and instructions here.
+
+Install and configure the llm-huggingface extension with the internal http://tgi:8084 endpoint.
+
