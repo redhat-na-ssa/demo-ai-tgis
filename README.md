@@ -30,10 +30,6 @@ oc new-app python~https://github.com/redhat-na-ssa/demo-ai-tgis.git --name=chat 
 oc create route edge --service=chat --insecure-policy='Redirect'
 ```
 
-```bash
-export INFERENCE_URL = Gradio app route
-```
-
 3. Fire up DevSpaces and let the Llama help you code!
 
 Need to add the correct `devfile.yaml` and instructions here.
