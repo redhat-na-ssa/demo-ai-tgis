@@ -1,5 +1,8 @@
 # demo-ai-tgis
-Text Generation Inference Server with DevSpaces Code-Llama assistant
+
+## Serve Large Language Models on Openshift with Hugging Face's Text Generation Inference Server.
+
+Modernize AI/ML application development with DevSpaces and VSCode using a Code-Llama code assistant.
 
 ## Work in progress...
 
