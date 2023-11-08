@@ -19,7 +19,7 @@ oc apply -k resources/base
 
 Get the route.
 ```
-export INFERENCE_URL = get the route
+export INFERENCE_URL==$(oc get route tgi --no-headers=true --output=custom-columns=:.spec.host)
 ```
 Verify the model server is running by visiting the [Swagger docs]${INFERENCE_URL}
 
